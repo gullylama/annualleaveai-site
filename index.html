@@ -11,15 +11,66 @@
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "AnnualLeaveAI",
-      "url": "https://annualleaveai.com",
-      "description": "A tool to help employees manage their emails efficiently when returning from annual leave.",
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "email": "michaelakinbola@hotmail.com",
-        "contactType": "Customer Support"
-      }
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://annualleaveai.com#organization",
+          "name": "AnnualLeaveAI",
+          "url": "https://annualleaveai.com",
+          "logo": "https://annualleaveai.com/img/logo.png",
+          "description": "A tool to help employees manage their emails efficiently when returning from annual leave.",
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "@id": "https://annualleaveai.com#contact",
+            "email": "michaelakinbola@hotmail.com",
+            "contactType": "Customer Support"
+          }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://annualleaveai.com#website",
+          "url": "https://annualleaveai.com",
+          "name": "AnnualLeaveAI",
+          "publisher": { "@id": "https://annualleaveai.com#organization" },
+          "inLanguage": "en"
+        },
+        {
+          "@type": "SoftwareApplication",
+          "@id": "https://annualleaveai.com#aiagent",
+          "name": "AnnualLeaveAI AI Email Management",
+          "applicationCategory": "AI Email Management",
+          "operatingSystem": "All",
+          "description": "AI-powered tool for smarter email management after annual leave, including triage, prioritization, and inbox summaries.",
+          "url": "https://annualleaveai.com",
+          "publisher": { "@id": "https://annualleaveai.com#organization" },
+          "featureList": [
+            "AI-Powered Triage",
+            "Inbox Summaries",
+            "Smart Prioritization",
+            "Privacy-First"
+          ],
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          },
+          "isAccessibleForFree": true,
+          "applicationSuite": "AnnualLeaveAI Suite",
+          "softwareVersion": "1.0.0",
+          "creator": { "@id": "https://annualleaveai.com#organization" },
+          "audience": {
+            "@type": "Audience",
+            "audienceType": "Employees returning from leave"
+          },
+          "keywords": [
+            "AI",
+            "email management",
+            "annual leave",
+            "productivity",
+            "inbox triage"
+          ]
+        }
+      ]
     }
   </script>
 </head>
