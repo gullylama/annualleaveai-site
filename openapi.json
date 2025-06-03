@@ -1,0 +1,20 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "AnnualLeaveAI API (Coming Soon)",
+    "version": "0.1.0",
+    "description": "Public API endpoints for AnnualLeaveAI. More endpoints coming soon."
+  },
+  "paths": {
+    "/status": {
+      "get": {
+        "summary": "Get API status",
+        "responses": {
+          "200": {
+            "description": "API is up"
+          }
+        }
+      }
+    }
+  }
+} 

@@ -1,0 +1,7 @@
+{
+  "contact": "mailto:michaelakinbola@hotmail.com",
+  "allowed_agents": ["*"],
+  "allowed_actions": ["read", "index"],
+  "disallowed_actions": ["write", "delete"],
+  "policy_url": "https://annualleaveai.com/agent-policy.html"
+} 
