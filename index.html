@@ -10,7 +10,10 @@
   <link rel="stylesheet" href="css/style.css">
   <script type="application/ld+json">
     {
-      "@context": "https://schema.org",
+      "@context": [
+        "https://schema.org",
+        {"ai": "https://schema.org/"}
+      ],
       "@graph": [
         {
           "@type": "Organization",
@@ -24,7 +27,10 @@
             "@id": "https://annualleaveai.com#contact",
             "email": "michaelakinbola@hotmail.com",
             "contactType": "Customer Support"
-          }
+          },
+          "sameAs": [
+            "https://github.com/gullylama/annualleaveai-site"
+          ]
         },
         {
           "@type": "WebSite",
@@ -68,7 +74,104 @@
             "annual leave",
             "productivity",
             "inbox triage"
+          ],
+          "mainEntityOfPage": { "@id": "https://annualleaveai.com#faq" },
+          "applicationSubCategory": "AIApplication",
+          "ai:aiEthicsPolicy": "https://annualleaveai.com/ai-ethics.html",
+          "ai:aiServiceOutput": "Summarized emails, prioritized tasks, suggested replies",
+          "ai:aiApplicationType": "Productivity Assistant",
+          "ai:aiAlgorithm": "Large Language Model, Email Thread Summarization, Prioritization"
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://annualleaveai.com#faq",
+          "url": "https://annualleaveai.com#faq",
+          "name": "AnnualLeaveAI FAQ",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "@id": "https://annualleaveai.com#faq-q1",
+              "name": "What is Annual Leave AI?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Annual Leave AI is a productivity assistant that summarizes everything you missed while on leave—emails, tasks, and action points."
+              }
+            },
+            {
+              "@type": "Question",
+              "@id": "https://annualleaveai.com#faq-q2",
+              "name": "How does Annual Leave AI help with post-leave email overload?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "It scans your inbox while you're away and delivers a concise summary of key messages, helping you catch up in minutes, not hours."
+              }
+            },
+            {
+              "@type": "Question",
+              "@id": "https://annualleaveai.com#faq-q3",
+              "name": "Who should use Annual Leave AI?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "It's perfect for professionals, managers, or solo founders who return to a bloated inbox and need a clear re-entry plan."
+              }
+            },
+            {
+              "@type": "Question",
+              "@id": "https://annualleaveai.com#faq-q4",
+              "name": "Can Annual Leave AI integrate with Outlook or Gmail?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, we're building seamless integrations for Outlook, Gmail, and Slack to make setup effortless."
+              }
+            },
+            {
+              "@type": "Question",
+              "@id": "https://annualleaveai.com#faq-q5",
+              "name": "Is my data secure with Annual Leave AI?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Absolutely. We use secure authentication protocols and never store your inbox data longer than needed."
+              }
+            },
+            {
+              "@type": "Question",
+              "@id": "https://annualleaveai.com#faq-q6",
+              "name": "What features does Annual Leave AI offer?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Key features include email thread summarization, follow-up detection, reply drafting, and prioritization."
+              }
+            },
+            {
+              "@type": "Question",
+              "@id": "https://annualleaveai.com#faq-q7",
+              "name": "Does Annual Leave AI draft responses for me?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, it generates suggested replies for follow-up messages so you can respond faster with less effort."
+              }
+            },
+            {
+              "@type": "Question",
+              "@id": "https://annualleaveai.com#faq-q8",
+              "name": "How is Annual Leave AI different from other productivity tools?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Unlike generic AI tools, Annual Leave AI is purpose-built for inbox catch-up and return-to-work efficiency after time off."
+              }
+            }
           ]
+        },
+        {
+          "@type": "WebAPI",
+          "@id": "https://annualleaveai.com/api",
+          "name": "AnnualLeaveAI Public API",
+          "description": "RESTful API for AI-powered email management and summarization.",
+          "documentation": "https://annualleaveai.com/openapi.yaml",
+          "provider": { "@id": "https://annualleaveai.com#organization" },
+          "serves": { "@id": "https://annualleaveai.com#aiagent" },
+          "endpointURL": "https://annualleaveai.com/api/v1/",
+          "license": "https://opensource.org/licenses/MIT"
         }
       ]
     }
@@ -77,10 +180,12 @@
 <body>
   <header class="site-header">
     <nav class="navbar" aria-label="Main navigation">
-      <a href="/" class="logo-link" aria-label="AnnualLeaveAI Home">
-        <img src="img/logo.png" alt="AnnualLeaveAI logo" width="48" height="48" style="vertical-align:middle;">
-        <span class="logo-text" style="font-size:2rem;font-weight:800;color:#fff;margin-left:0.5rem;vertical-align:middle;">ALAi</span>
-      </a>
+      <div class="logo-bg">
+        <a href="/" class="logo-link" aria-label="AnnualLeaveAI Home">
+          <img src="img/logo.png" alt="AnnualLeaveAI logo" width="48" height="48" style="vertical-align:middle;">
+          <span class="logo-text" style="font-size:2rem;font-weight:800;color:#5cb5f2;margin-left:0.5rem;vertical-align:middle;">ALAi</span>
+        </a>
+      </div>
       <button class="menu-toggle" aria-label="Open menu" aria-controls="main-menu" aria-expanded="false" style="display:none;">
         <span class="menu-bar"></span>
         <span class="menu-bar"></span>
@@ -126,6 +231,20 @@
       <div class="cta-content">
         <h2>Ready to experience stress-free email management?</h2>
         <a href="mailto:michaelakinbola@hotmail.com" class="cta-btn cta-main">Contact Us</a>
+      </div>
+    </section>
+    <!-- FAQ Section -->
+    <section class="faq-section modular-section">
+      <h2 class="faq-title">Frequently Asked Questions</h2>
+      <div class="faq-list">
+        <div class="faq-item"><h3>What is Annual Leave AI?</h3><p>Annual Leave AI is a productivity assistant that summarizes everything you missed while on leave—emails, tasks, and action points.</p></div>
+        <div class="faq-item"><h3>How does Annual Leave AI help with post-leave email overload?</h3><p>It scans your inbox while you're away and delivers a concise summary of key messages, helping you catch up in minutes, not hours.</p></div>
+        <div class="faq-item"><h3>Who should use Annual Leave AI?</h3><p>It's perfect for professionals, managers, or solo founders who return to a bloated inbox and need a clear re-entry plan.</p></div>
+        <div class="faq-item"><h3>Can Annual Leave AI integrate with Outlook or Gmail?</h3><p>Yes, we're building seamless integrations for Outlook, Gmail, and Slack to make setup effortless.</p></div>
+        <div class="faq-item"><h3>Is my data secure with Annual Leave AI?</h3><p>Absolutely. We use secure authentication protocols and never store your inbox data longer than needed.</p></div>
+        <div class="faq-item"><h3>What features does Annual Leave AI offer?</h3><p>Key features include email thread summarization, follow-up detection, reply drafting, and prioritization.</p></div>
+        <div class="faq-item"><h3>Does Annual Leave AI draft responses for me?</h3><p>Yes, it generates suggested replies for follow-up messages so you can respond faster with less effort.</p></div>
+        <div class="faq-item"><h3>How is Annual Leave AI different from other productivity tools?</h3><p>Unlike generic AI tools, Annual Leave AI is purpose-built for inbox catch-up and return-to-work efficiency after time off.</p></div>
       </div>
     </section>
   </main>
